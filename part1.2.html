@@ -43,16 +43,16 @@
                     <p class="lead">This is Part 2</p>
                 </div>
                 <div class="col-lg-2 order-1 mb-3 d-flex flex-column gap-2 mx-auto align-items-stretch">
-                    <button name="2.1" class="btn btn-success btn-block" data-sql="SELECT * "FROM" employees LIMIT 100" onClick="reply_click(this)">2.1</button>
-                    <button name="2.2" class="btn btn-success btn-block">2.2</button>
-                    <button name="2.3" class="btn btn-success btn-block">2.3</button>
-                    <button name="2.4" class="btn btn-success btn-block">2.4</button>
-                    <button name="2.5" class="btn btn-success btn-block">2.5</button>
-                    <button name="2.6" class="btn btn-success btn-block">2.6</button>
-                    <button name="2.7" class="btn btn-success btn-block">2.7</button>
-                    <button name="2.8" class="btn btn-success btn-block">2.8</button>
-                    <button name="2.9" class="btn btn-success btn-block">2.9</button>
-                    <button name="2.10" class="btn btn-success btn-block">2.10</button>
+                    <button name="2.1" class="btn btn-success btn-block" data-sql="SELECT count(hire_date) from employees WHERE hire_date = '1991-05-01' LIMIT 100" onClick="reply_click(this)">2.1</button>
+                    <button name="2.2" class="btn btn-success btn-block" data-sql="SELECT emp_id, count(emp_id) FROM titles GROUP BY emp_id HAVING count(emp_id) > 2 LIMIT 100" onClick="reply_click(this)">2.2</button>
+                    <button name="2.3" class="btn btn-success btn-block" data-sql="SELECT * from employees WHERE gender = 'F' LIMIT 100" onClick="reply_click(this)">2.3</button>
+                    <button name="2.4" class="btn btn-success btn-block" data-sql="SELECT * from employees WHERE hire_date < '1986-01-01' and last_name = 'Simmel' LIMIT 100" onClick="reply_click(this)">2.4</button>
+                    <button name="2.5" class="btn btn-success btn-block" data-sql="SELECT COUNT(*) AS 'TOTAL WITH B' FROM employees WHERE last_name LIKE 'B%' LIMIT 100" onClick="reply_click(this)">2.5</button>
+                    <button name="2.6" class="btn btn-success btn-block" data-sql="CREATE TABLE emp_training (trainer_no INTEGER PRIMARY KEY AUTOINCREMENT, first_name VARCHAR(30) NOT NULL, last_name VARCHAR(30) NOT NULL, t_module VARCHAR(20) NULL" onClick="reply_click(this)">2.6</button>
+                    <button name="2.7" class="btn btn-success btn-block" data-sql="INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Joe', 'Bloggs', 'Google Docs')" onClick="reply_click(this)">2.7</button>
+                    <button name="2.8" class="btn btn-success btn-block" data-sql="DROP TABLE emp_training" onClick="reply_click(this)">2.8</button>
+                    <button name="2.9" class="btn btn-success btn-block" data-sql="ALTER TABLE employees ADD email_address VARCHAR(20)" onClick="reply_click(this)">2.9</button>
+                    <button name="2.10" class="btn btn-success btn-block" data-sql="UPDATE employees SET email_address = 'gfacello@gmail.com' WHERE emp_id = 10001" onClick="reply_click(this)">2.10</button>
                 </div>
                 <div class="col-lg-10 order-2 border-success">
                     <textarea id="commands" class="mb-5">TEXT

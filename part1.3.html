@@ -43,11 +43,11 @@
                     <p class="lead">This is Part 3</p>
                 </div>
                 <div class="col-lg-2 order-1 mb-3 d-flex flex-column gap-2 mx-auto align-items-stretch">
-                    <button name="3.1" class="btn btn-success btn-block" data-sql="SELECT * "FROM" employees LIMIT 100" onClick="reply_click(this)">3.1</button>
-                    <button name="3.2" class="btn btn-success btn-block">3.2</button>
-                    <button name="3.3" class="btn btn-success btn-block">3.3</button>
-                    <button name="3.4" class="btn btn-success btn-block">3.4</button>
-                    <button name="3.5" class="btn btn-success btn-block">3.5</button>
+                    <button name="3.1" class="btn btn-success btn-block" data-sql="SELECT dept_manager.dept_id, count(dept_manager.emp_id) AS 'num_empGender', employees.gender from employees, dept_manager WHERE (gender = 'F' or gender = 'M') and dept_manager.emp_id = employees.emp_id GROUP BY gender, dept_id order by dept_id LIMIT 100" onClick="reply_click(this)">3.1</button>
+                    <button name="3.2" class="btn btn-success btn-block" data-sql="SELECT employees.gender, AVG(salaries.salary) as 'AVG_Salary', titles.title from employees, salaries, titles WHERE employees.emp_id = salaries.emp_id and employees.emp_id = titles.emp_id and titles.title = 'Technique Leader' group by employees.gender LIMIT 100" onClick="reply_click(this)">3.2</button>
+                    <button name="3.3" class="btn btn-success btn-block" data-sql="SELECT COUNT(salaries.emp_id) FROM salaries WHERE salary >= 90000 and salary <= 90040 and to_date = '9999-01-01' LIMIT 100" onClick="reply_click(this)">3.3</button>
+                    <button name="3.4" class="btn btn-success btn-block" data-sql="SELECT first_name, last_name, salary to_date FROM employees INNER JOIN salaries on employees.emp_id = salaries.emp_id WHERE to_date = '9999-01-01' and salary > 90000 group BY first_name, last_name ORDER by last_name, first_name DESC LIMIT 100" onClick="reply_click(this)">3.4</button>
+                    <button name="3.5" class="btn btn-success btn-block" data-sql="SELECT employees.first_name, employees.last_name, salaries.salary, salaries.from_date, salaries.to_date FROM employees, salaries WHERE employees.emp_id = 10012 AND salaries.emp_id = 10012 LIMIT 100" onClick="reply_click(this)">3.5</button>
                 </div>
                 <div class="col-lg-10 order-2 border-success">
                     <textarea id="commands" class="mb-5">TEXT
