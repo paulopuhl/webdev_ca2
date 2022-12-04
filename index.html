@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" >
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
-        <meta name="description" content="Ca2 for Database and Webdev" >
-        <meta name="author" content="Paulo Puhl" >
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Ca2 for Database and Webdev">
+        <meta name="author" content="Paulo Puhl">
         <title>WebDev CA2</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" >
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" >
+        <link href="css/styles.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
         <script>
@@ -28,9 +28,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="part1.1.html">Part 1</a></li>
-                        <li class="nav-item"><a class="nav-link" href="part1.2.html">Part 2</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Part 3</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Part 1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="part2.html">Part 2</a></li>
+                        <li class="nav-item"><a class="nav-link" href="part3.html">Part 3</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,21 +40,21 @@
             <div class="row">
                 <div class="col-lg-12 text-center mt-5">
                     <h1>CA2: Data Manipulation & Validation</h1>
-                    <p class="lead">This is Part 3</p>
+                    <p class="lead">This is Part 1</p>
                 </div>
                 <div class="col-lg-2 order-1 mb-3 d-flex flex-column gap-2 mx-auto align-items-stretch">
-                    <button name="3.1" class="btn btn-success btn-block" data-sql="SELECT dept_manager.dept_id, count(dept_manager.emp_id) AS 'num_empGender', employees.gender from employees, dept_manager WHERE (gender = 'F' or gender = 'M') and dept_manager.emp_id = employees.emp_id GROUP BY gender, dept_id order by dept_id LIMIT 100" onClick="reply_click(this)">3.1</button>
-                    <button name="3.2" class="btn btn-success btn-block" data-sql="SELECT employees.gender, AVG(salaries.salary) as 'AVG_Salary', titles.title from employees, salaries, titles WHERE employees.emp_id = salaries.emp_id and employees.emp_id = titles.emp_id and titles.title = 'Technique Leader' group by employees.gender LIMIT 100" onClick="reply_click(this)">3.2</button>
-                    <button name="3.3" class="btn btn-success btn-block" data-sql="SELECT COUNT(salaries.emp_id) FROM salaries WHERE salary >= 90000 and salary <= 90040 and to_date = '9999-01-01' LIMIT 100" onClick="reply_click(this)">3.3</button>
-                    <button name="3.4" class="btn btn-success btn-block" data-sql="SELECT first_name, last_name, salary to_date FROM employees INNER JOIN salaries on employees.emp_id = salaries.emp_id WHERE to_date = '9999-01-01' and salary > 90000 group BY first_name, last_name ORDER by last_name, first_name DESC LIMIT 100" onClick="reply_click(this)">3.4</button>
-                    <button name="3.5" class="btn btn-success btn-block" data-sql="SELECT employees.first_name, employees.last_name, salaries.salary, salaries.from_date, salaries.to_date FROM employees, salaries WHERE employees.emp_id = 10012 AND salaries.emp_id = 10012 LIMIT 100" onClick="reply_click(this)">3.5</button>
+                    <button name="1.1" class="btn btn-success btn-block" data-sql="SELECT * FROM departments LIMIT 100" onClick="reply_click(this)">1.1</button>
+                    <button name="1.2" class="btn btn-success btn-block" data-sql="SELECT emp_id, first_name, last_name FROM employees LIMIT 100" onClick="reply_click(this)">1.2</button>
+                    <button name="1.3" class="btn btn-success btn-block" data-sql="SELECT * FROM employees WHERE gender = 'F' LIMIT 100" onclick="reply_click(this)">1.3</button>
+                    <button name="1.4" class="btn btn-success btn-block" data-sql="SELECT * FROM employees WHERE hire_date < '1986-01-01' and last_name = 'Simmel' LIMIT 100" onclick="reply_click(this)">1.4</button>
+                    <button name="1.5" class="btn btn-success btn-block" data-sql="SELECT COUNT(*) AS 'TOTAL WITH B' FROM employees WHERE last_name LIKE 'B%' LIMIT 100" onclick="reply_click(this)">1.5</button>
                 </div>
                 <div class="col-lg-10 order-2 border-success">
                     <textarea id="commands" class="mb-5">TEXT
                     </textarea>
                     <div class="d-grid gap-2 mt-2 mb-1">
                         <button class="btn btn-primary" type="button" id="execute">Execute</button>
-                            <input type="file" class="form-control" id="dbfile" >
+                            <input type="file" class="form-control" id="dbfile">
                     </div>
                     <div id="error" class="error"></div>
                     <pre id="output">Results will be displayed here</pre>
